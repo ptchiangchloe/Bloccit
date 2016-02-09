@@ -22,3 +22,40 @@ section {
   margin: 5px 5px 5px 5px;
   padding: 5px 5px 5px 5px;
 }
+
+.social-btn {
+  position: relative;
+  color:#ffffff;
+  text-decoration: none;
+  font-family: 'Oswald';
+  display: block;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 60px;
+  text-align: center;
+
+  -webkit-transform: translate(0,0);
+  -moz-transform: translate(0,0);
+  transform: translate(0,0);
+
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+
+  height: 54px;
+  cursor: pointer;
+  overflow: hidden;
+
+  font: 0/0 a;
+      text-shadow: none;
+      color: transparent;
+}
+
+.social-btn:active{
+  -webkit-transform: translate(0, 3px)
+      -moz-transform: translate(0, 3px)
+      transform: translate(0, 3px);
+}
