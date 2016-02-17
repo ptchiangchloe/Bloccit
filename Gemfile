@@ -23,7 +23,7 @@ source 'https://rubygems.org'
  # Use Uglifier as compressor for JavaScript assets
  gem 'uglifier', '>= 1.3.0'
  # Use CoffeeScript for .coffee assets and views
- gem 'jekyll-coffeescript', '~> 1.0', '>= 1.0.1'
+ gem 'coffee-script', '~> 2.4', '>= 2.4.1'
  # Use jquery as the JavaScript library
  gem 'jquery-rails', '~> 4.1'
  # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

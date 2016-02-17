@@ -15,21 +15,20 @@ RSpec.describe PostsController, type: :controller do
       get :index
       expect(assigns(:posts)).to eq([my_post])
     end
-   
+
 
   describe "GET new" do
-    it "return http success" do
+    it "returns http success" do
       get :new
       expect(response).to have_http_status(:success)
     end
 
-
     it "renders the #new view" do
       get :new
-      expect(response).to render_templete.new
+      expect(response).to render_template :new
     end
 
-    it "instatiates @post" do
+    it "instantiates @post" do
       get :new
       expect(assigns(:post)).not_to be_nil
     end
@@ -46,7 +45,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it "redirects to the new post" do
-      post :create, post: {title: RandomData.random_sentence, RandomData.random_paragraph}
+      post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
       expect(response).to redirect_to Post.last
     end
   end
