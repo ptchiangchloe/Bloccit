@@ -14,16 +14,9 @@ posts = Post.all
   )
 end
 
-unique_post do
-  Post.create!(
-  title:"my unique title"
-  body:"my unique body"
-)
-end
-
-
-
-
+puts "#{Post.count}"
+Post.find_or_create_by(title: "A unique title", body: "A unique body")
+puts "#{Post.count}"
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
