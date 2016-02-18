@@ -2,7 +2,7 @@ require "random_data"
 50.times do
   Post.create!(
     title: RandomData.random_sentence,
-    body: RandomData.random_paragraph
+    body:  RandomData.random_paragraph
   )
 end
 posts = Post.all
@@ -13,6 +13,15 @@ posts = Post.all
     body: RandomData.random_paragraph
   )
 end
+
+Advertisment.create!(
+    title: RandomData.random_sentence,
+    body:  RandomData.random_paragraph
+  )
+
+advertisments = Advertisment. all
+
+posts = Post.all
 
 puts "#{Post.count}"
 Post.find_or_create_by(
