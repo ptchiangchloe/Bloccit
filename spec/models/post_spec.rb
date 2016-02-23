@@ -17,6 +17,7 @@ RSpec.describe Post, type: :model do
 
 
 
+
   describe "attribute" do
     it "responds to title" do
       expect(post).to respond_to(:title)
