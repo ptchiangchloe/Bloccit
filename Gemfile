@@ -29,3 +29,5 @@ source 'https://rubygems.org'
  gem 'jquery-rails', '~> 4.1'
  # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
  gem 'turbolinks', '~> 2.5', '>= 2.5.3'
+ #Used for encrypting User passwords
+ gem 'bcrypt'
