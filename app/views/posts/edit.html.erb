@@ -10,19 +10,6 @@
     </ul>
   </div>
   <div class="col-md-8">
-    <%= form_for [@post.topic, @post] do |f| %>
-      <div class="form-group">
-          <%= f.label :title %>
-          <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
-      </div>
-      <div>
-        <%= f.label :body %>
-        <%= f.text_area :body, rows: 10, class: 'form-control',
-        placeholder: "Enter post body" %>
-      </div>
-      <div>
-        <%= f.submit "Save" %>
-      </div>
-    <% end %>
+    <%= render partial: 'form', locals: { topic: @post.topic, post:@post } %>
   </div>
 </div>
