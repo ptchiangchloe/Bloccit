@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :require_sign_in, except: :show
 
+
+
   def show
     @post = Post.find(params[:id])
   end
