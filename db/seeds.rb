@@ -1,5 +1,14 @@
 require "random_data"
 
+5.times do
+  User.create!(
+   name:     RandomData.random_name,
+   email:    RandomData.random_email,
+   password: RandomData.random_sentence
+   )
+ end
+ users = User.all
+
 15.times do
    Topic.create!(
      name:         RandomData.random_sentence,
@@ -10,6 +19,7 @@ require "random_data"
 
 50.times do
   Post.create!(
+    user:   users.sample,
     topic:  topics.sample,
     title: RandomData.random_sentence,
     body:  RandomData.random_paragraph
@@ -24,6 +34,12 @@ posts = Post.all
   )
 end
 
+user = User.first
+user.update_attributes!(
+  email: 'ptchiang12@gmail.com',
+  password: 'helloworld'
+)
+
 puts "#{Post.count}"
 Post.find_or_create_by(
   title: "a unique title",
@@ -32,6 +48,7 @@ Post.find_or_create_by(
 puts "#{Post.count}"
 
 puts "Seed finished"
+puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
