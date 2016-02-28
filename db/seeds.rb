@@ -10,7 +10,8 @@ posts = Post.all
 10.times do
   Question.create!(
     title: RandomData.random_sentence,
-    body:  RandomData.random_paragraph
+    body:  RandomData.random_paragraph,
+    resolved: true
   )
 end
 questions = Question.all
