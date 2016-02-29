@@ -34,6 +34,12 @@ posts = Post.all
   )
 end
 
+moderator = User.create!(
+  name:     'moderator',
+  email:    'moderator@bloccit.com',
+  password: 'helloworld',
+  role:     'moderator'
+)
 admin = User.create!(
   name:     'Admin User',
   email:    'admin@example.com',
