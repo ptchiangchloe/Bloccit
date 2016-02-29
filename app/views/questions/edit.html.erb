@@ -13,14 +13,19 @@
     <%= form_for @question do |f| %>
       <div class="form-group">
         <%= f.label :title %>
-        <%= f.text_field :title%>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter
+        question title" %>
       </div>
-      <div>
+      <div class="form-group">
         <%= f.label :body %>
-        <%= f.text_field :body%>
+        <%= f.text_area :body, row: 8, class: 'form-control', placeholder: "Enter
+        question body" %>
       </div>
-      <div>
-        <%= f.submit "Save" %>
+      <div class="form-group">
+        Mark as Resolved? <%= f.check_box :resolved %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn-success' %>
       </div>
     <% end %>
   </div>

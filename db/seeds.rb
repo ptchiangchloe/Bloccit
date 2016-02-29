@@ -31,7 +31,7 @@ posts = Post.all
   Question.create!(
     title: RandomData.random_sentence,
     body:  RandomData.random_paragraph,
-    resolved: true
+    resolved: false
   )
 end
 questions = Question.all
