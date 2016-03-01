@@ -2,7 +2,7 @@ require 'rails_helper'
 include SessionsHelper
 require 'random_data'
 
-RSpec.describe ConmentsController, type: :controller do
+RSpec.describe CommentsController, type: :controller do
 
   let(:my_user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
   let(:other_user) { User.create!(name: RandomData.random_name, email: RandomData.random_email, password: "helloworld", role: :member)}
