@@ -1,8 +1,10 @@
 <div class="media">
   <div class="media-body">
+    <h4 class="media-heading">
+      <%= link_to topic.name, topic %>
+    </h4>
     <small>
-      <%= topic.name %> posted <%= time_ago_in_words(topic.created_at) %> ago
+      <%= topic.description %>
     </small>
-      <p><%= topic.description %></p>
   </div>
 </div>
