@@ -9,8 +9,7 @@
     <% if current_user %>
         <%= render 'topics/form', topic:Topic.new %>
     <% end %>
-  </div>
-
+   </div>
    <% if user_is_authorized_for_topics? %>
    <div class="col-md-4">
      <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>

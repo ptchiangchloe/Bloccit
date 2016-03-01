@@ -1,4 +1,8 @@
 <h1><%= @topic.name %></h1>
+<small>
+  submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> <br>
+  <%= post.comments.count %> Comments
+</small>
 <% if user_is_authorized_for_topics? %>
 <%= link_to "Edit", edit_topic_path, class: 'btn btn-success' %>
 <%= link_to "Delete Post", @topic, method: :delete, class: 'btn btn-danger',
