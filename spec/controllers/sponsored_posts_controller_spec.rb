@@ -44,7 +44,7 @@ RSpec.describe SponsoredPostsController, type: :controller do
 
   describe "POST create" do
     it "increases the number by 1" do
-      expect{sponsored_post :create, topic_id: my_topic.id, sponsored_post: {title: RandomData.random_sentence,
+      expect{post :create, topic_id: my_topic.id, sponsored_post: {title: RandomData.random_sentence,
       body:RandomData.random_paragraph, price:100 }}.to change(SponsoredPost,:count).by(1)
     end
 
