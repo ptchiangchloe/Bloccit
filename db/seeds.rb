@@ -15,12 +15,12 @@ posts = Post.all
 end
 
 puts "#{Post.count}"
-Post.find_or_create_by(title: "A unique title", body: "A unique body")
+unique_post = Post.find_or_create_by(title: "A unique title", body: "A unique body")
 puts "#{Post.count}"
-unique_posts = Post.all
+
 
 puts "#{Comment.count}"
-Comment.find_or_create_by(post: unique_posts.sample)
+Comment.find_or_create_by(post: unique_post, body:"A unique body")
 puts "#{Comment.count}"
 
 puts "Seed finished"
