@@ -17,9 +17,10 @@ end
 puts "#{Post.count}"
 Post.find_or_create_by(title: "A unique title", body: "A unique body")
 puts "#{Post.count}"
+unique_posts = Post.all
 
 puts "#{Comment.count}"
-Comment.find_or_create_by(post: posts.find_or_create_by, body: "A unique body")
+Comment.find_or_create_by(post: unique_posts.sample)
 puts "#{Comment.count}"
 
 puts "Seed finished"
