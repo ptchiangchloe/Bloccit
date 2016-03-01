@@ -1,0 +1,8 @@
+<h4>Add a topic</h4>
+<%= form_for topic do |f| %>
+  <div class="form-group">
+    <%= f.label :description, class: 'sr-only' %>
+    <%= f.text_field :description, class: 'form-control', placeholder: "Enter a description" %>
+  </div>
+    <%= f.submit "Submit Topic", class: 'btn btn-default pull-right' %>
+<% end %>
