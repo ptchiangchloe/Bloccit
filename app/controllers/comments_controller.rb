@@ -4,34 +4,39 @@ class CommentsController < ApplicationController
 
 
   def create
-    @post = Post.find(params[:post_id])
-    comment = @post.comments.new(comment_params)
+    id = params[:post_id] || params[:topic_id]
+    if params[:post_id]
+      @parent = Post.find(params[:post_id])
+    elsif params[:topic_id]
+      @parent = Topic.find(params[:topic_id])
+    end
+    comment = @parent.comments.new(comment_params)
     comment.user = current_user
 
     if comment.save
       flash[:notice] = "Comment was saved."
-      redirect_to [@post.topic, @post]
+      redirect_to [@parent.topic, @parent]
     else
       flash.now[:alert] = "There was an error saving the comment. Please try again."
-      redirect_to [@post.topic, @post]
+      redirect_to [@parent.topic, @parent]
     end
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    comment = @post.comments.find(params[:id])
+    @parent = params[:post_id] || params[:topic_id]
+    comment = @parent.comments.find(params[:id])
 
     if comment.destroy
       flash[:notice] = "Comment was deleted successfully."
-      redirect_to [@post.topic, @post]
+      redirect_to [@parent.topic, @parent]
     else
       flash.now[:alert] = "There was an error deleting the comment."
-      redirect_to [@post.topic, @post]
+      redirect_to [@parent.topic, @parent]
     end
   end
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:x, :y)
   end
 
   def authorize_user
