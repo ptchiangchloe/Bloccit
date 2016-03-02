@@ -21,6 +21,9 @@
         placeholder: "Enter topic description" %>
       </div>
       <div class="form-group">
+        <%= render partial: 'labels/form', locals: { f: f, labels: @topic.labels } %>
+      </div>
+      <div class="form-group">
         <%= f.label :public, class: 'checkbox' do %>
           <%= f.check_box :public %> Public topic
         <% end %>

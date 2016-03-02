@@ -27,7 +27,15 @@ ActiveRecord::Schema.define(version: 20160301205314) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "labelings", force: :cascade do |t|
+    t.integer  "label_id"
+    t.integer  "labelable_id"
+    t.string   "labelable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "labelings", ["label_id"], name: "index_labelings_on_label_id"
+  add_index "labelings", ["labelable_type", "labelable_id"], name: "index_labelings_on_labelable_type_and_labelable_id"
 
   create_table "labels", force: :cascade do |t|
     t.string   "name"
