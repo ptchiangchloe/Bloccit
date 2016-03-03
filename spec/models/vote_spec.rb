@@ -24,4 +24,11 @@ RSpec.describe Vote, type: :model do
       vote.save
     end
   end
+
+  describe "after_create callback" do
+    it "triggers create_vote on save" do
+      expect(post).to receive(:create_vote).at_least(:once)
+      vote.save
+    end
+  end
 end
