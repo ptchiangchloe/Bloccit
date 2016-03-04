@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+  </head>
+  <body>
+    <h1>New post to "<%= @topic.title %>"</h1>
+    <small>
+      By: <%= @post.user.name %>
+    </small>
+    <p>
+      <%= @post.body %>
+    </p>
+    <p>
+      <%= link_to "View Post on site", topic_url(@topic, anchor: "post-#{@post.id}") %>
+    </p>
+  </body>
+</html>

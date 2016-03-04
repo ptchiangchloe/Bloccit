@@ -1,0 +1,8 @@
+New post to "<%= @topic.title %>"
+<%= "=" * (@topic.title.length + 12) %>
+
+By: <$= @post.user.name %>
+
+<%= @post.body %>
+
+Visit online at: <%= topic_url( @topic, anchor: "post-#{@post.id}")
