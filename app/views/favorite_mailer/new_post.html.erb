@@ -4,15 +4,11 @@
     <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
   </head>
   <body>
-    <h1>New post to "<%= @topic.title %>"</h1>
-    <small>
-      By: <%= @post.user.name %>
-    </small>
+    <h1>You're following, "<%= @post.title %>", you will be notified of all comments.
+      If you don't want to receive further notifications, unfavorite your
+      <%= link_to "post", topic_post_url(@post.topic, @post) %>.</h1>
     <p>
-      <%= @post.body %>
-    </p>
-    <p>
-      <%= link_to "View Post on site", topic_url(@topic, anchor: "post-#{@post.id}") %>
+      <%= link_to "View Post on site", topic_post_url(@post.topic, @post) %>
     </p>
   </body>
 </html>
