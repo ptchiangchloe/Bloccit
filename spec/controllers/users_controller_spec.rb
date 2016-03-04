@@ -51,7 +51,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "not signed in" do
-    let(:factory_user) {create(user)}
+    let(:factory_user) {create(:user)}
 
     before do
       post :create, user: new_user_attributes
