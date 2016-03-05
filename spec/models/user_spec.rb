@@ -113,17 +113,16 @@ RSpec.describe User, type: :model do
       expected_gravatar = "http://gravatar.com/avatar/bb6d1172212c180cfbdb7039129d7b03.png?s=48"
       expect(known_user.avatar_url(48)).to eq(expected_gravatar)
     end
-
-
   end
 
+  describe "detect" do
 
+    let(:known_user) { create(:user, post, comment) }
 
+    it "detects if there are posts or comments for a given user" do
 
-
-
-
-
-
-
+      expect(known_user.post).not_to be_nil
+      expect(known_user.comment).not_to be_nil
+    end
+  end
 end

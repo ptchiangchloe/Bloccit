@@ -2,6 +2,9 @@
   <div class="col-md-8">
     <div class="media">
       <br />
+      <div class="media-right">
+        <%= render @user.posts.favorite %>
+      </div>
       <% avatar_url = @user.avatar_url(128) %>
       <% if avatar_url %>
         <div class="media-left">
@@ -19,8 +22,8 @@
   </div>
 </div>
 
-<h2>Posts</h2>
-<%= render @user.comments %>
+<% if detect %>Posts<% end %>
+<%= render @user.posts %>
 
-<h2>Comments</h2>
+<% if detect %>Comments<% end %>
 <%= render @user.comments %>
