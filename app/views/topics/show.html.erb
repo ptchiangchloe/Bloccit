@@ -1,11 +1,12 @@
 <h1><%= @topic.name %></h1>
-<% if user_is_authorized_for_topics? %>
-<% if current_user.moderator? %>
-<%= link_to "Edit", edit_topic_path, class: 'btn btn-success' %>
-<% end %>
-<%= link_to "Delete Post", @topic, method: :delete, class: 'btn btn-danger',
-data: { confirm: 'Are you sure you want to delete this post?' } %>
-<% end %>
+
+  <% if current_user.moderator? || user_is_authorized_for_topics? %>
+      <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
+  <% end %>
+  <% if user_is_authorized_for_topics? %>
+    <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger',
+    data: { confirm: 'Are you sure you want to delete this post?' } %>
+  <% end %>
 
 <div class="row">
   <div class="col-md-8">
