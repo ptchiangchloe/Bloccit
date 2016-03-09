@@ -31,3 +31,4 @@ source 'https://rubygems.org'
  gem 'turbolinks', '~> 2.5', '>= 2.5.3'
  #Used for encrypting User passwords
  gem 'bcrypt'
+ gem 'access-granted', '~> 1.0.0'

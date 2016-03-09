@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+
+  rescue_from AccessGranted::AccessDenied do |exception|
+    redirect_to root_path, alert: "You don't have permissions to access this page."
+  end
 end

@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    access-granted (1.0.4)
     actionmailer (4.2.5)
       actionpack (= 4.2.5)
       actionview (= 4.2.5)
@@ -153,6 +154,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  access-granted (~> 1.0.0)
   bcrypt
   bootstrap-sass
   coffee-rails (~> 4.1.0)
