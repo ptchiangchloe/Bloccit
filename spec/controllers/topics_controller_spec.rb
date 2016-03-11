@@ -273,4 +273,82 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
   end
+
+  context "moderator" do
+    before do
+      user = User.create!(name: "Bloccit moderator" , email: "moderator@bloccit.com", password: "helloworld", role: :moderator)
+      create_session(user)
+    end
+
+    describe "GET index" do
+      it "returns http success" do
+        get :index
+        expect(response).to have_http_status(:success)
+      end
+
+      it "assigns Topic.all to topic" do
+        get :index
+        expect(assigns(:topics)).to eq([my_topic])
+      end
+    end
+
+    describe "GET show" do
+      it "returns http success" do
+        get :show, {id: my_topic.id}
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the #show view" do
+        get :show, {id: my_topic.id}
+        expect(response).to render_template :show
+      end
+
+      it "assigns my_topic to @topic" do
+        get :show, {id: my_topic.id}
+        expect(assigns(:topic)).to eq(my_topic)
+      end
+    end
+
+    describe "GET new" do
+      it "returns a 200 OK status" do
+        get :index
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    describe "POST create" do
+      it "returns http redirect" do
+        post :create, {topic: {name: RandomData.random_sentence, description: RandomData.random_paragraph}}
+        expect(response).to have_http_status(:redirect)
+      end
+    end
+
+    describe "GET edit" do
+      it "returns http success" do
+        get :edit, {id: my_topic.id}
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the #edit view" do
+        get :edit, {id: my_topic.id}
+        expect(response).to render_template :edit
+      end
+
+      it "assigns topic to be updated to @topic" do
+        get :edit, {id: my_topic.id}
+        topic_instance = assigns(:topic)
+
+        expect(topic_instance.id).to eq my_topic.id
+        expect(topic_instance.name).to eq my_topic.name
+        expect(topic_instance.description).to eq my_topic.description
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "returns http redirect" do
+        delete :destroy,  {id: my_topic.id}
+        expect(response).to have_http_status(:redirect)
+      end
+    end
+  end
 end
