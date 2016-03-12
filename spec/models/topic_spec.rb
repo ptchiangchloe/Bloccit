@@ -4,8 +4,10 @@ require 'random_data'
 RSpec.describe Topic, type: :model do
   let(:topic) {Topic.create!(name:RandomData.random_sentence, description:
     RandomData.random_paragraph) }
+  it { is_expected.to have_many(:posts) }
+  it { is_expected.to have_many(:commentings) }
+  it { is_expected.to have_many(:comments).through(:commentings) }
 
-  it { is_expected.to have_many(:posts) }  
 
   describe "attributes" do
     it "responds to name" do

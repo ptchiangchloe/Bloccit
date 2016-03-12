@@ -20,6 +20,9 @@
         <%= f.text_area :body, rows: 10, class: 'form-control',
         placeholder: "Enter post body" %>
       </div>
+      <div class="form-group">
+        <%= render partial: 'comments/form', locals: { f: f, topic: @topic, comments: @post.comments } %>
+      </div>
       <div>
         <%= f.submit "Save" %>
       </div>

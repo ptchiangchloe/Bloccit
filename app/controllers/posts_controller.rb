@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
+      @post.comments = Comment.update_comments(params[:post][:comments])
       flash[:notice] = "Post was saved."
       #redirect_to @post
       redirect_to [@topic, @post]
@@ -36,6 +37,7 @@ class PostsController < ApplicationController
     @post.assign_attributes(post_params)
 
     if @post.save
+      @post.comments = Comment.update_comments(params[:post][:comments])
       flash[:notice] = "Post was updated."
       #redirect_to @post
       redirect_to [@post.topic, @post]
