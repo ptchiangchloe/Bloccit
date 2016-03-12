@@ -3,6 +3,10 @@ class Comment < ActiveRecord::Base
   has_many :topics, through: :commentings, source: :commentable, source_type: :Topic
   has_many :posts, through: :commentings, source: :commentable, source_type: :Post
 
+  belongs_to :user
+  validates :body, length: { minimum: 5 }, presence: true
+  validates :user, presence: true
+
   def self.update_comments(comment_string)
     return Comment.none if comment_string.blank?
 

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  let(:my_comment) { Comment.create!(body: "C1") }
+  let(:my_user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
+  let(:my_comment) { Comment.create!(body: "my new comment", user: my_user) }
 
   describe "GET #show" do
     it "returns http success" do
