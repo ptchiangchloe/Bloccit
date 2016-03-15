@@ -1,14 +1,11 @@
-<h3>Comments</h3>
 <div class="media">
-  <% commentable.comments.each do |comment| %>
-     <div class="media-body">
-       <small>
-         <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
-         <% if user_is_authorized_for_comment?(comment) %>
-           | <%= link_to "Delete", [commentable, comment], method: :delete %>
-         <% end %>
-       </small>
-       <p><%= comment.body %></p>
-     </div>
-   <% end %>
- </div>
+  <div class="media-body">
+    <small>
+      <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+    </small>
+    <% if user_is_authorized_for_comment?(comment) %>
+       | <%= link_to "Delete", [parent, comment], method: :delete %>
+     <% end %>
+    <p><%= comment.body %></p>
+  </div>
+</div>

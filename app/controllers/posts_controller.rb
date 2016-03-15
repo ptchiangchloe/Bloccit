@@ -20,7 +20,6 @@ class PostsController < ApplicationController
     if @post.save
       @post.comments = Comment.update_comments(params[:post][:comments])
       flash[:notice] = "Post was saved."
-      #redirect_to @post
       redirect_to [@topic, @post]
     else
       flash.now[:alert] = "There was an error saving the post. Please try again."

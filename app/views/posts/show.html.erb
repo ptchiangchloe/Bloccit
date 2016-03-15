@@ -9,7 +9,11 @@
   <div class="col-md-8">
     <p><%= @post.body%></p>
   </div>
-  <%= render({ partial: 'comments/comment', locals: {commentable: @post} }) %>
+  <div>
+    <% @post.comments.each do |comment| %>
+      <%= render partial: 'comments/comment', locals: {comment: comment, parent: @post} %>
+    <% end %>
+  </div>
   <% if current_user %>
     <%= render 'comments/form', comment: Comment.new, parent: @post %>
   <% end %>

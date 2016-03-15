@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   has_many :commentings
-  belongs_to :commentable, polymorphic: true
+  has_many :topics, through: :commentings, source: :commentable, source_type: :Topic
+  has_many :posts, through: :commentings, source: :commentable, source_type: :Post
   belongs_to :user
   validates :body, length: { minimum: 5 }, presence: true
   validates :user, presence: true

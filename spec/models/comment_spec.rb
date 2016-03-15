@@ -6,8 +6,8 @@ RSpec.describe Comment, type: :model do
   description: RandomData.random_paragraph) }
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
   let(:post) { topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user) }
-  let(:comment1) {Comment.create!(body: 'Comment')}
-  let(:comment2) {Comment.create!(body: 'Comment2')}
+  let(:comment1) {Comment.create!(body: 'Comment', user:user)}
+  let(:comment2) {Comment.create!(body: 'Comment2', user:user)}
   it { is_expected.to have_many :commentings }
   it { is_expected.to have_many(:topics).through(:commentings) }
   it { is_expected.to have_many(:posts).through(:commentings) }
